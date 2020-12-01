@@ -9,12 +9,15 @@ function setup() {
   createCanvas(500, 400);
 
   //make one avatar called me
-  me = new Avatar(width/2, 300, 3);
+  me = new Avatar(width/5, 300, 3);
 
 }
 
 function draw(){
 	background(220);
+  strokeWeight(5)
+line(450,100,500,100)
+line(450,350,500,350)
 
   me.drawMe();
   me.moveMe();
@@ -47,11 +50,11 @@ class Avatar {
     		stroke("green");
         strokeWeight(3);
     		fill("blue");
-		    ellipse(this.x,this.y,20,20);
-        line(this.x,this.y, this.x, this.y+40);
-        line(this.x, this.y+40, this.x-20, this.y+60);
-        line(this.x, this.y+40, this.x+10, this.y+50);
-        line(this.x+10, this.y+50, this.x+5, this.y+60);
+		    ellipse(this.x,this.y-25,60,50);
+        line(this.x,this.y, this.x, this.y+50);
+        line(this.x, this.y+50, this.x-20, this.y+80);
+        line(this.x, this.y+50, this.x+10, this.y+60);
+        line(this.x+10, this.y+60, this.x+10, this.y+80);
         line(this.x, this.y+15, this.x-10, this.y+25);
         line(this.x-10, this.y+25, this.x+10, this.y+35);
 	}
@@ -87,8 +90,8 @@ class Ball {
 	drawBall(){
     	stroke(0);
       strokeWeight(1);
-    	fill("red");
-		  ellipse(this.x,this.y,10,10);
+    	fill("green");
+		  ellipse(this.x,this.y,5,5);
 	}
 
 	//update the location of the ball, so it moves across the screen
@@ -99,7 +102,7 @@ class Ball {
 
 	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
   	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+    		if (this.x >= me.x-30 && this.x <= me.x+40 && this.y > me.y-55 && this.y < me.y+65){
       			this.speed = -this.speed;
     		}
   	}
